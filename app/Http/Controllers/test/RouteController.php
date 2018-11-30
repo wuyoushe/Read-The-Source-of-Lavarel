@@ -18,4 +18,9 @@ class RouteController extends Controller
         return view('test/test')->with('username', 'HelloFelton');
         //return view('test')->with('username', 'HelloFelton');
     }
+
+    public function hello()
+    {
+        echo 'hello,world';
+    }
 }

@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        //从CSRF中排除URL
+        'alipay'
     ];
 }

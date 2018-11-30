@@ -20,10 +20,12 @@ class CacheServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        /*在服务容器中设置一个名为cache的CacheManager单例*/
         $this->app->singleton('cache', function ($app) {
             return new CacheManager($app);
         });
 
+        /*在服务容器中设置一个名为cache.store的单例，例如*/
         $this->app->singleton('cache.store', function ($app) {
             return $app['cache']->driver();
         });

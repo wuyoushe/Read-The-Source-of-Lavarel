@@ -35,6 +35,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
+        /*__DIR__当前文件的目录*/
         $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');

@@ -30,7 +30,7 @@ class Kernel implements KernelContract
 
     /**
      * The bootstrap classes for the application.
-     *
+     * this will be run before the request is executed.
      * @var array
      */
     protected $bootstrappers = [
@@ -67,6 +67,9 @@ class Kernel implements KernelContract
      * The priority-sorted list of middleware.
      *
      * Forces the listed middleware to always be in the given order.
+     * all request must pass through before being handled by the application
+     * those middleware handle reading and writing the HTTP session,determing if the application is in maintenance mode
+     * verifying the CSRF token
      *
      * @var array
      */
@@ -107,6 +110,7 @@ class Kernel implements KernelContract
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * the function is receive a Request and return a Reponse
      */
     public function handle($request)
     {
